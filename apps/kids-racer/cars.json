@@ -1,0 +1,34 @@
+[
+  {
+    "id": "sports",
+    "name": "跑車",
+    "color": "#57C7FF",
+    "icon": "./assets/icons/sports.png",
+    "sentences": ["這是跑車。", "它跑得很快。"],
+    "keywords": ["跑車", "快"]
+  },
+  {
+    "id": "construction",
+    "name": "工程車",
+    "color": "#FFCF57",
+    "icon": "./assets/icons/construction.png",
+    "sentences": ["這是工程車。", "它會搬泥和石。"],
+    "keywords": ["工程車", "搬"]
+  },
+  {
+    "id": "ambulance",
+    "name": "救護車",
+    "color": "#FF6B6B",
+    "icon": "./assets/icons/ambulance.png",
+    "sentences": ["這是救護車。", "它會送病人去醫院。"],
+    "keywords": ["救護車", "醫院"]
+  },
+  {
+    "id": "firetruck",
+    "name": "消防車",
+    "color": "#FF8A3D",
+    "icon": "./assets/icons/firetruck.png",
+    "sentences": ["這是消防車。", "它會救火和救人。"],
+    "keywords": ["消防車", "救火"]
+  }
+]

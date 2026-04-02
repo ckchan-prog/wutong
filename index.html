@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-HK">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>梧桐</title>
+    <meta
+      name="description"
+      content="梧桐：鳳凰非梧桐不棲。把不同程式像 App Store 一樣整齊擺放。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <span class="leaf"></span>
+          </div>
+          <div class="brand-text">
+            <h1 class="title">梧桐</h1>
+            <p class="subtitle">鳳凰非梧桐不棲</p>
+          </div>
+        </div>
+
+        <nav class="top-actions" aria-label="網站操作">
+          <a class="pill" href="#apps">Apps</a>
+          <a class="pill" href="./README.md" target="_blank" rel="noreferrer">如何加 App</a>
+          <a
+            class="pill pill-ghost"
+            href="https://github.com/ckchan-prog/wutong"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub</a
+          >
+        </nav>
+      </header>
+
+      <main class="content">
+        <section class="hero" aria-label="介紹">
+          <div class="hero-card">
+            <p class="hero-kicker">像 App Store 一樣</p>
+            <h2 class="hero-title">把你嘅程式，一格格擺好。</h2>
+            <p class="hero-desc">
+              之後每個程式都可以有自己嘅圖標、名稱、簡介同連結。你只要改
+              <code>apps.json</code>，就會自動出現在下面。
+            </p>
+          </div>
+        </section>
+
+        <section class="apps" id="apps" aria-label="Apps 清單">
+          <div class="section-head">
+            <h3 class="section-title">Apps</h3>
+            <div class="section-meta">
+              <span id="appCount" class="badge" aria-live="polite">載入中…</span>
+              <button id="toggleView" class="button" type="button">切換：圖標</button>
+            </div>
+          </div>
+
+          <div id="appsGrid" class="grid" role="list" aria-busy="true"></div>
+
+          <template id="appCardTpl">
+            <article class="card" role="listitem">
+              <a class="card-link" href="#" target="_self" rel="noreferrer">
+                <div class="icon" aria-hidden="true">
+                  <img class="icon-img" alt="" loading="lazy" />
+                  <div class="icon-fallback" aria-hidden="true"></div>
+                </div>
+                <div class="card-body">
+                  <div class="card-title-row">
+                    <h4 class="card-title"></h4>
+                    <span class="card-tag"></span>
+                  </div>
+                  <p class="card-desc"></p>
+                </div>
+              </a>
+            </article>
+          </template>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="footer-text">
+          © <span id="year"></span> 梧桐 · 枯黃樹葉色系 · 靜態網站
+        </p>
+      </footer>
+    </div>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>

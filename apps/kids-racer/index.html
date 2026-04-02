@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-HK">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>兒童賽車｜梧桐</title>
+    <meta name="description" content="按一下放車，小朋友也能玩的簡單賽車遊戲。" />
+    <link rel="stylesheet" href="./kids-racer.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="back" href="../../index.html">← 返回梧桐</a>
+        <div class="titleBox">
+          <h1 class="title">兒童賽車</h1>
+          <p class="subtitle">按一下放車 · 認字小卡</p>
+        </div>
+        <div class="right">
+          <button id="toggleSpeech" class="pill" type="button" aria-pressed="false">
+            朗讀：關
+          </button>
+          <button id="reset" class="pill pill-ghost" type="button">清空</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="stage" aria-label="遊戲畫面">
+          <canvas id="game" width="900" height="560" aria-label="賽道畫面"></canvas>
+          <div class="hud" aria-live="polite">
+            <div class="hudLeft">
+              <span class="badge" id="countBadge">0 架車</span>
+              <span class="badge badgeGhost" id="tipBadge">提示：按下面按鈕放車</span>
+            </div>
+            <div class="hudRight">
+              <button id="speedDown" class="btn" type="button">慢一點</button>
+              <button id="speedUp" class="btn" type="button">快一點</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-label="放車與介紹">
+          <div class="cars" id="carButtons" aria-label="車種按鈕"></div>
+
+          <div class="card" id="wordCard" aria-label="文字介紹">
+            <div class="cardHead">
+              <div class="cardIcon" aria-hidden="true">
+                <img id="cardIconImg" alt="" />
+                <div id="cardIconFallback" class="cardIconFallback" aria-hidden="true"></div>
+              </div>
+              <div class="cardTitleBox">
+                <div class="cardTitleRow">
+                  <h2 class="cardTitle" id="cardTitle">選一架車</h2>
+                  <span class="chip" id="cardChip" hidden>重點字</span>
+                </div>
+                <p class="cardSub" id="cardSub">按下面任何一個按鈕，放一架車出來。</p>
+              </div>
+            </div>
+
+            <div class="sentences" id="sentences"></div>
+
+            <div class="keywords" id="keywords" aria-label="重點字"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="footerText">
+          小提示：這個版本的車會自動跑；重點是「按一下放車」與「簡單中文認字」。
+        </p>
+      </footer>
+    </div>
+
+    <script src="./kids-racer.js" defer></script>
+  </body>
+</html>
