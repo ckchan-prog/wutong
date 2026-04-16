@@ -13,32 +13,54 @@ function normalizeApp(app) {
     href: String(app?.href ?? "#"),
     tag: String(app?.tag ?? ""),
     icon: String(app?.icon ?? ""),
+    lucideIcon: String(app?.lucideIcon ?? "").trim(),
   };
 }
 
-function setIcon(iconRoot, iconUrl, appName) {
+function setIcon(iconRoot, iconUrl, appName, lucideName) {
   const img = iconRoot.querySelector(".icon-img");
   const fallback = iconRoot.querySelector(".icon-fallback");
+  const lucideEl = iconRoot.querySelector(".icon-lucide");
   if (!img || !fallback) return;
 
-  if (!iconUrl) {
+  const showFallback = () => {
     img.style.display = "none";
     img.removeAttribute("src");
+    if (lucideEl) {
+      lucideEl.removeAttribute("data-lucide");
+      lucideEl.setAttribute("hidden", "");
+    }
     fallback.style.display = "block";
+  };
+
+  if (lucideEl) {
+    lucideEl.removeAttribute("data-lucide");
+    lucideEl.setAttribute("hidden", "");
+  }
+  fallback.style.display = "none";
+
+  if (lucideName && lucideEl) {
+    img.style.display = "none";
+    img.removeAttribute("src");
+    lucideEl.setAttribute("data-lucide", lucideName);
+    lucideEl.removeAttribute("hidden");
+    return;
+  }
+
+  if (!iconUrl) {
+    showFallback();
     return;
   }
 
   img.alt = `${appName} 圖標`;
   img.src = iconUrl;
   img.style.display = "block";
-  fallback.style.display = "none";
+  if (lucideEl) lucideEl.setAttribute("hidden", "");
 
   img.addEventListener(
     "error",
     () => {
-      img.style.display = "none";
-      img.removeAttribute("src");
-      fallback.style.display = "block";
+      showFallback();
     },
     { once: true }
   );
@@ -81,7 +103,7 @@ function renderApps(apps) {
         tag.style.display = "none";
       }
     }
-    if (icon) setIcon(icon, app.icon, app.name);
+    if (icon) setIcon(icon, app.icon, app.name, app.lucideIcon);
 
     frag.appendChild(node);
   }
@@ -90,6 +112,8 @@ function renderApps(apps) {
   grid.setAttribute("aria-busy", "false");
 
   if (badge) badge.textContent = `${apps.length} 個`;
+
+  paintLucide();
 }
 
 async function loadApps() {
@@ -121,7 +145,7 @@ function initViewToggle() {
   };
 
   const saved = localStorage.getItem(KEY);
-  apply(saved === "icons" ? "icons" : "list");
+  apply(saved === "list" ? "list" : "icons");
 
   btn.addEventListener("click", () => {
     const isIcons = root.classList.toggle("view-icons");
@@ -130,9 +154,16 @@ function initViewToggle() {
   });
 }
 
+function paintLucide() {
+  if (typeof lucide !== "undefined" && lucide.createIcons) {
+    lucide.createIcons();
+  }
+}
+
 async function main() {
   setYear();
   initViewToggle();
+  paintLucide();
   const apps = await loadApps();
   renderApps(apps);
 }

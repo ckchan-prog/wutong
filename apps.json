@@ -1,18 +1,11 @@
 [
   {
-    "id": "demo",
-    "name": "示範 App",
-    "description": "呢個係示範用嘅卡片。之後你可以喺 apps.json 加更多 app。",
-    "href": "#",
-    "tag": "Demo",
-    "icon": ""
-  },
-  {
     "id": "kids-racer",
-    "name": "兒童賽車",
+    "name": "Kids Racer",
     "description": "按一下放車，車會自動跑；配合簡單中文介紹，幫小朋友認字。",
     "href": "./apps/kids-racer/",
     "tag": "Kids",
-    "icon": ""
+    "icon": "",
+    "lucideIcon": "car"
   }
 ]

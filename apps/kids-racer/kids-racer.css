@@ -110,12 +110,13 @@ body{
   padding: 12px;
 }
 
-canvas{
+canvas#game{
   width: 100%;
+  aspect-ratio: 16 / 10;
   height: auto;
   display: block;
   border-radius: 18px;
-  background: rgba(0,0,0,0.22);
+  background: #0a0906;
 }
 
 .hud{
@@ -366,6 +367,13 @@ canvas{
   color: rgba(255, 249, 230, 0.50);
   font-size: 12px;
   line-height: 1.4;
+}
+.footerText code{
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255, 239, 186, 0.12);
 }
 
 @media (prefers-reduced-motion: reduce){

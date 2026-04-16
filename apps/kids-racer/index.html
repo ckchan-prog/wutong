@@ -13,7 +13,7 @@
         <a class="back" href="../../index.html">← 返回梧桐</a>
         <div class="titleBox">
           <h1 class="title">兒童賽車</h1>
-          <p class="subtitle">按一下放車 · 認字小卡</p>
+          <p class="subtitle">3D 賽車 · 按一下放車 · 認字小卡</p>
         </div>
         <div class="right">
           <button id="toggleSpeech" class="pill" type="button" aria-pressed="false">
@@ -25,7 +25,7 @@
 
       <main class="content">
         <section class="stage" aria-label="遊戲畫面">
-          <canvas id="game" width="900" height="560" aria-label="賽道畫面"></canvas>
+          <canvas id="game" aria-label="賽道畫面"></canvas>
           <div class="hud" aria-live="polite">
             <div class="hudLeft">
               <span class="badge" id="countBadge">0 架車</span>
@@ -65,11 +65,18 @@
 
       <footer class="footer">
         <p class="footerText">
-          小提示：這個版本的車會自動跑；重點是「按一下放車」與「簡單中文認字」。
+          小提示：3D 賽道 · 每架車會先「拉後再衝前」；亦可拖住車再拉一次。需用本機伺服器開啟（例如 <code>python3 -m http.server</code>）。
         </p>
       </footer>
     </div>
 
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js"
+        }
+      }
+    </script>
     <script type="module" src="./kids-racer.js"></script>
   </body>
 </html>
